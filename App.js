@@ -55,10 +55,13 @@ class App extends Component {
     AsyncStorage.getItem('@todos:list')
     .then( val => {
       const obj = JSON.parse(val)
-      // console.log(obj)
+      console.log(obj)
       setTimeout( () => {
         obj ? this.setState({
           todos: obj,
+          cargando: false
+        })
+        : !obj ? this.setState({
           cargando: false
         })
         : this.setState({
